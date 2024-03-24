@@ -4,6 +4,7 @@
   "description": "E-Commerce backend",
   "main": "server.js",
   "scripts": {
+    "start":"node src/server.js",
     "dev": "nodemon src/server.js"
   },
   "author": "Sabeel Khan",
