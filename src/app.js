@@ -15,7 +15,6 @@ app.use(cors({
     methods: ['GET', 'POST', 'PATCH',"DELETE"]
 }));
 app.use(cookieParser());
-app.set("trust proxy", 1);
 
 // APIs
 app.use(productRoutes);

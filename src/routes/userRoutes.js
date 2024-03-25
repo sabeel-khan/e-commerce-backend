@@ -74,7 +74,16 @@ router.post('/login', catchAsync(async (req, res) => {
 
 
 router.get('/logout', (req, res) => {
-    res.cookie('token', "");
+    res.cookie('token', "", {
+        // can only be accessed by server requests
+        httpOnly: true,
+        // path = where the cookie is valid
+        path: "/",
+        // secure = only send cookie over https
+        secure: true,
+        // sameSite = only send cookie if the request is coming from the same origin
+        sameSite: "none", // "strict" | "lax" | "
+    });
     res.status(200).json({ message: 'Logged out successfully' });
 });
 
