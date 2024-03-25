@@ -10,7 +10,7 @@ const userRoutes = require('./routes/userRoutes');
 // Middlewares
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000","https://66004a547fedfff09b5437e5--willowy-elf-7373b6.netlify.app"],
+    origin: ["http://localhost:3000","https://6601191a80077682487c6c26--willowy-elf-7373b6.netlify.app"],
     credentials: true,
     methods: ['GET', 'POST', 'PATCH',"DELETE"]
 }));
