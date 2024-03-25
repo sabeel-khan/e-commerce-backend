@@ -56,7 +56,18 @@ router.post('/login', catchAsync(async (req, res) => {
 
     const token = jwt.sign({userId: user._id}, JWT_SECRET);
 
-    res.cookie('token', token, { maxAge: 3 * 24 * 60 * 60 * 1000 });
+    res.cookie('token', token, {
+        // can only be accessed by server requests
+        httpOnly: true,
+        // path = where the cookie is valid
+        path: "/",
+        // secure = only send cookie over https
+        secure: true,
+        // sameSite = only send cookie if the request is coming from the same origin
+        sameSite: "none", // "strict" | "lax" | "
+
+        maxAge: 3 * 24 * 60 * 60 * 1000
+    });
 
     res.status(200).json(user);
 }));
